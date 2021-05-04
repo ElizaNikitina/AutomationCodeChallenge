@@ -2,6 +2,7 @@ package utils;
 
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -172,14 +173,17 @@ public class CommonMethods extends PageInitializer {
 	 */
 	public static  void elementFromTable(List<WebElement> element, String expected){
 
+		boolean userFound = false;
 		for (int i = 1; i < element.size(); i++) {
 
 			String rowText=element.get(i-1).getText();//get text of each row excluding header.
 			if(rowText.contains(expected)) {//validating expected Value
-				System.out.println(expected + " added successful");
+				userFound = true;
 				break;
 			}
 		}
+		Assert.assertTrue(userFound);
+
 	}
 
 
@@ -190,14 +194,17 @@ public class CommonMethods extends PageInitializer {
 	 */
 	public static  void elementIsNotInTheTable(List<WebElement> element, String expected){
 
+		boolean userNotFound = true;
 		for (int i = 1; i < element.size(); i++) {
 
 			String rowText=element.get(i-1).getText();//get text of each row excluding header.
-			if(!rowText.contains(expected)) {//validating expected Value
-				System.out.println("User "  + expected + " is not in the table");
+			if(rowText.contains(expected)) {//validating expected Value
+				userNotFound=false;
 				break;
 			}
 		}
+
+		Assert.assertTrue(userNotFound);
 	}
 
 }
