@@ -129,6 +129,10 @@ formatter.scenarioOutline({
   ]
 });
 formatter.step({
+  "name": "user click on Add User button",
+  "keyword": "Given "
+});
+formatter.step({
   "name": "user enters employee data from \"User_Info\" excel sheet",
   "keyword": "When "
 });
@@ -164,6 +168,16 @@ formatter.scenario({
   ]
 });
 formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user click on Add User button",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "steps.User.user_click_on_add_user_button()"
+});
+formatter.result({
   "status": "passed"
 });
 formatter.step({

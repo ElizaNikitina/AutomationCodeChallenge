@@ -17,6 +17,7 @@
 
   @codeChallenge
   Scenario Outline: Add a user data from excel and validate the user has been added to the table
+   Given user click on Add User button
    When user enters employee data from "User_Info" excel sheet
    Then verify "<First Name>" has been added
    Examples:

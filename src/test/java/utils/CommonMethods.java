@@ -104,8 +104,6 @@ public class CommonMethods extends PageInitializer {
 		return picBytes;
 	}
 
-
-
 	/**
 	 * Explicit wait for element clickability
 	 * 
@@ -158,15 +156,6 @@ public class CommonMethods extends PageInitializer {
 	}
 
 	/**
-	 * Method clicks on element using JavascriptExecutor
-	 * 
-	 * @param element
-	 */
-	public static void jsClick(WebElement element) {
-		getJSObject().executeScript("arguments[0].click();", element);
-	}
-
-	/**
 	 * Method validate expected value in the table
 	 * @param element
 	 * @param expected
@@ -185,7 +174,6 @@ public class CommonMethods extends PageInitializer {
 		Assert.assertTrue(userFound);
 
 	}
-
 
 	/**
 	 * Method validate expected value is NOT in the table

@@ -19,12 +19,13 @@ public class User extends CommonMethods{
     public void user_click_on_add_user_button() {
         click(allElements.addUser);
         getWait();
+        driver.switchTo().activeElement();
     }
 
     @When("user add {string}, {string}, {string},{string},{string},{string},{string},{string}")
     public void user_add(String firstName, String lastName, String userName, String password, String customer, String role, String email, String cellPhone) {
 
-        driver.switchTo().activeElement();
+
         sendText(allElements.firstName, firstName);
         getWait();
         sendText(allElements.lastName, lastName);
@@ -88,10 +89,6 @@ public class User extends CommonMethods{
 
     @When("user enters employee data from {string} excel sheet")
     public void user_enters_employee_data_from_excel_sheet(String sheetName) {
-
-        click(allElements.addUser);
-        getWait();
-        driver.switchTo().activeElement();
 
         List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(Constants.TESTDATA_FILEPATH, sheetName);
         for (Map<String, String> data : excelList) {
